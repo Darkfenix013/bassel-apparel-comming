@@ -1,0 +1,229 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+:root {
+  --negro: #393939;
+  --blanco: #ececec;
+  --sombra-ppal: #c9c9c9;
+  --sombra-sec: #ffffff;
+  --borde-negro: #00000050;
+  --marcado: rgb(127, 195, 255);
+  /* Tipografía */
+  --tipo-principal: Helvetica, Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  padding: 25px;
+}
+.nav .nav__img-container .logo {
+  width: 100px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-content: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.info-container .info_img-container {
+  max-width: 600px;
+  width: 100%;
+  height: 250px;
+  background-image: url("/images/hero-mobile.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.info-container .textos {
+  margin: 1em;
+  text-align: center;
+}
+
+.textos {
+  width: 350px;
+}
+.textos .title {
+  font-size: 3em;
+  padding-top: 1em;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.textos span {
+  font-weight: 300;
+  color: hsl(0deg, 36%, 70%);
+}
+.textos .description {
+  padding: 1.5em;
+  font-size: 13px;
+  line-height: 1.5em;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  color: hsl(0deg, 36%, 70%);
+}
+
+.container-btn {
+  position: relative;
+}
+.container-btn .input {
+  width: 250px;
+  height: 3em;
+  color: #000;
+  border: 1px solid hsla(0deg, 36%, 70%, 0.5);
+  border-radius: 20px;
+  padding-left: 1em;
+}
+.container-btn .input:focus {
+  border-width: 2px;
+    box-shadow: 0px 0px 10px hsla(0deg, 36%, 70%, 0.5);
+  outline: none;
+}
+.container-btn .input::placeholder {
+  color: hsl(0deg, 36%, 70%);
+}
+.container-btn .error {
+  visibility: hidden;
+  position: absolute;
+  bottom: 10px;
+  right: 70px;
+  width: 1.3em;
+}
+
+.container-btn.activo .error {
+  visibility: visible;
+}
+
+.container-btn.activo .input {
+  border: 1px solid red;
+}
+
+.container-btn.enviado .input {
+  border: 1px solid green;
+}
+.msg-error.activo {
+  visibility: visible;
+  color: hsl(0deg, 36%, 70%);
+}
+.msg-error.enviado{
+  visibility: visible;
+  color: green;
+}
+
+button {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 4em;
+  height: 3em;
+  padding: 10px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, hsl(0deg, 80%, 86%), hsl(0deg, 74%, 74%));
+  border: none;
+  box-shadow: 2px 5px 10px hsla(0deg, 36%, 70%, 0.5);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: hsl(0deg, 80%, 86%);
+}
+
+.msg-error {
+  position: absolute;
+  bottom: -30px;
+  left: 90px;
+  font-size: 13px;
+  
+  visibility: hidden;
+}
+
+
+@media (min-width: 600px) {
+  .info-container .info_img-container {
+    max-width: 100%;
+    width: 100%;
+    background-size: contain;
+    height: 350px;
+  }
+}
+@media (min-width: 800px) {
+  .nav {
+    grid-area: textos;
+    position: absolute;
+    top: 50px;
+  }
+  .nav .nav__img-container .logo {
+    width: 150px;
+  }
+  .info-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(375px, 1fr));
+    grid-template-areas: "textos img";
+    place-content: center;
+    place-items: center;
+  }
+  .info-container .info_img-container {
+    grid-area: img;
+    width: 100%;
+    height: 600px;
+    background-image: url("/images/hero-desktop.jpg");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .info-container .textos {
+    grid-area: textos;
+  }
+  .info-container .container-btn {
+    grid-area: textos;
+    top: 200px;
+  }
+
+  .msg-error {
+    bottom: 50px;
+  }
+}
+@media (min-width: 1024px) {
+  .nav {
+    padding: 30px;
+  }
+  .nav .nav__img-container .logo {
+    width: 150px;
+  }
+  .info-container {
+    margin: 2em 2em;
+  }
+  .info-container .info_img-container {
+    grid-area: img;
+    width: 100%;
+    height: 600px;
+    background-image: url("/images/hero-desktop.jpg");
+  }
+  .info-container .textos {
+    grid-area: textos;
+  }
+  .info-container .container-btn {
+    grid-area: textos;
+    top: 200px;
+  }
+  .container-btn .input {
+    width: 350px;
+  }
+  .msg-error {
+    left: 180px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
