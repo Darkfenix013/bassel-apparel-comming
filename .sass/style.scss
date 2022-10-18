@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+@import  "mixin/flex";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.nav{
+    padding: 25px;
+    .nav__img-container{
+        .logo{
+            width: 100px;
+        }
+    }
+}
+
+
+main{
+    display: grid;
+    grid-template-columns: 1fr;
+    place-content: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.info-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    .info_img-container{
+        max-width: 600px;
+        width: 100%;
+        height: 250px;
+        background-image: url("/images/hero-mobile.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .textos{
+        margin: 1em;
+        text-align: center;
+    }
+}
+
+.textos{
+    width: 350px;
+    .title{
+        font-size: 3em;
+        padding-top: 1em;
+        font-weight: 600;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+    }
+    span{
+        font-weight: 300;
+        color:  hsl(0, 36%, 70%);
+    }
+    .description{
+        padding: 1.5em;
+        font-size: 13px;
+        line-height: 1.5em;
+        letter-spacing: .04em;
+        font-weight: 400;
+        color:  hsl(0, 36%, 70%);
+        
+    }
+
+}
+
+.container-btn{
+    position: relative;
+    .input{
+        width: 250px;
+        height:  3em;
+        color:#000;
+        border: 1px solid hsla(0, 36%, 70%, 0.5);
+        border-radius: 20px;
+        padding-left: 1em;
+       
+    }
+    .input:focus{
+        border-width: 2px;
+        box-shadow: 0px 0px 10px hsla(0, 36%, 70%, 0.5);
+        outline: none;
+    }
+    .input::placeholder{
+        color: hsl(0, 36%, 70%)
+    }
+    .error{
+        visibility: hidden;
+        position: absolute;
+        bottom: 6px;
+        right: 70px;
+        // border: 2px solid hsl(0, 93%, 68%);
+    }
+    
+    
+    
+}
+.container-btn.activo .error{
+    visibility: visible;
+}
+.container-btn.activo .input{
+    border: 1px solid   red;
+  }
+  
+.msg-error.activo{
+    visibility: visible;
+}
+button{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 4em;
+    height: 3em;
+    padding: 10px;
+    border-radius: 20px;
+    // sintaxix de linear gradient con grados.
+    background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0,74%,74%));
+    border: none;
+    box-shadow:  2px 5px 10px hsla(0,36%,70%,0.5);
+    cursor: pointer;
+}
+button:hover{
+  background-color:hsl(0, 80%, 86%);
+}
+.msg-error{
+    position: absolute;
+    bottom: 50px;
+    left: 170px;
+    font-size: 13px;
+    color: hsl(0, 36%, 70%);
+    visibility: hidden;
+}
+
+@media (min-width:600px) {
+    .info-container{
+      
+        .info_img-container{
+            max-width: 100%;
+            width: 100%;
+            background-size: contain;
+            height: 350px;
+
+        }
+      
+    }
+}
+
+@media (min-width:800px) {
+    .nav{
+        grid-area: textos;
+        position: absolute;
+        top: 50px;
+      
+            .nav__img-container{
+                .logo{
+                    width: 150px;
+                }
+            }
+        
+    }
+.info-container{
+        display: grid;
+        grid-template-columns: repeat(2,minmax(375px,1fr));
+        grid-template-areas: "textos img";
+        place-content: center;
+        place-items: center;
+        .info_img-container{
+        grid-area: img;
+        width: 100%;
+        height: 600px;
+        background-image: url("/images/hero-desktop.jpg");
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .textos{
+        grid-area: textos;
+    }
+    .container-btn{
+        grid-area: textos;
+        top: 200px;
+    }
+
+}
+
+}
+@media (min-width:1024px) {
+    .nav{
+      padding: 30px;
+      
+            .nav__img-container{
+                .logo{
+                    width: 150px;
+                }
+            }
+        
+    }
+.info-container{
+      margin: 2em 2em;
+        .info_img-container{
+        grid-area: img;
+        width: 100%;
+        height: 600px;
+        background-image: url("/images/hero-desktop.jpg");
+    
+    }
+    .textos{
+        grid-area: textos;
+    }
+    .container-btn{
+        grid-area: textos;
+        top: 200px;
+    }
+}
+.container-btn{
+  
+    .input{
+        width: 350px;
+
+    }
+    
+}
+}
